@@ -20,9 +20,9 @@ Upload the entire `wordpress-theme-management-rest-api` folder to the `/wp-conte
 OR
 Activate the plugin through the 'Plugins' menu in WordPress.
 
-## Frequently Asked Questions
+## Install Theme Example
 
-none
+  curl -d "params={'theme_slug':'astra'}" "https://YOURWPHOST.DOMAIN/?rest_route=/theme-management/v1/"
 
 ## Changelog
 
