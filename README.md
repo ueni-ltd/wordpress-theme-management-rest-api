@@ -22,7 +22,9 @@ Activate the plugin through the 'Plugins' menu in WordPress.
 
 ## Install Theme Example
 
-  curl -d "params={'theme_slug':'astra'}" "https://YOURWPHOST.DOMAIN/?rest_route=/theme-management/v1/"
+```shell
+curl -d "params={'theme_slug':'astra'}" "https://YOURWPHOST.DOMAIN/?rest_route=/theme-management/v1/"
+```
 
 ## Changelog
 
