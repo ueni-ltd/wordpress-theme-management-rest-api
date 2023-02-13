@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: WP Theme Management Rest Api
+Plugin Name: Theme Management WP REST API
 Plugin URI: https://github.com:ueni-ltd/wordpress-theme-management-rest-api.git
-Description: Enabling this plugin allows you to manage theme on your site using WordPress rest api.
+Description: This plugin allows you to manage the theme on your site using WordPress REST API.
 Author: ueni
 Version: 0.1.0
 Author URI: https://ueni.com
