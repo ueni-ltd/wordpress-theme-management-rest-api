@@ -80,10 +80,3 @@ function theme_management_callback( $request ) {
         'theme'   => wp_get_theme( $theme_slug ),
     );
 }
-
-
-
-
-
-
-
