@@ -16,9 +16,9 @@ Enabling this plugin allows you to install theme on your site using WordPress RE
 
 ## Installation
 
-Upload the entire `wordpress-theme-management-rest-api` folder to the `/wp-content/plugins/` directory.
-OR
-Activate the plugin through the 'Plugins' menu in WordPress.
+Upload the entire `wordpress-theme-management-rest-api` folder to the `/wp-content/plugins/` directory.  
+OR  
+Activate the plugin through the 'Plugins' menu in WordPress.  
 
 ## Install Theme Example
 
