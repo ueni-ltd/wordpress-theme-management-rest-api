@@ -31,7 +31,7 @@ function theme_management_rest_api() {
 
     include_once( ABSPATH . 'wp-admin/includes/file.php' );
 
-    register_rest_route( 'ueni/v1', '/theme-management/', array(
+    register_rest_route( 'theme-management/v1', '/', array(
         'methods' => 'POST',
         'callback' => 'theme_management_callback',
         'permission_callback' => function () {
