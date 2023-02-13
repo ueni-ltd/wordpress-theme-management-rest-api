@@ -1,5 +1,5 @@
 === UENI REST Install Theme ===
-Contributors: alonewerwolf
+Contributors: ueni
 Tags: Rest, Themes
 Requires at least: 5.0
 Tested up to: 6.1.1
