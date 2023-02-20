@@ -29,8 +29,6 @@ License:
 
 function theme_management_rest_api() {
 
-    include_once( ABSPATH . 'wp-admin/includes/file.php' );
-
     register_rest_route( '/v1', '/theme-management', array(
         'methods' => 'POST',
         'callback' => 'theme_management_callback',
@@ -44,39 +42,18 @@ add_action( 'rest_api_init', 'theme_management_rest_api' );
 
 function theme_management_callback( $request ) {
 
-    include_once( ABSPATH . 'wp-admin/includes/class-wp-upgrader.php' );
-    include_once( ABSPATH . 'wp-admin/includes/theme.php' );
+    require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+    require_once ABSPATH . 'wp-admin/includes/class-theme-upgrader.php';
+    require_once ABSPATH . 'wp-admin/includes/file.php';
+    require_once ABSPATH . 'wp-admin/includes/misc.php';
 
     $theme_slug = $request->get_param( 'theme_slug' );
+    $url = 'https://downloads.wordpress.org/theme/' . $theme_slug . '.zip';
 
-    if ( empty( $theme_slug ) ) {
-        return new WP_Error( 'missing_theme_slug', 'The theme slug is required to install the theme', array( 'status' => 400 ) );
-    }
+    // Instantiate a new Theme_Upgrader object.
+    $upgrader = new Theme_Upgrader(new WP_Upgrader_Skin());
 
-    // Get the WordPress themes directory path
-    $themes_dir = trailingslashit( WP_CONTENT_DIR ) . 'themes/';
+    // Attempt to install the theme.
+    $result = $upgrader->install($url);
 
-    // Connect to the filesystem
-    $creds = request_filesystem_credentials( site_url() );
-    if ( ! WP_Filesystem( $creds ) ) {
-        return new WP_Error( 'filesystem_error', 'Unable to connect to the filesystem', array( 'status' => 500 ) );
-    }
-
-    // Download the theme from the WordPress repository
-    $temp_file = download_url( 'https://downloads.wordpress.org/theme/' . $theme_slug . '.zip' );
-    if ( is_wp_error( $temp_file ) ) {
-        return new WP_Error( 'download_error', 'Unable to download the theme archive', array( 'status' => 500 ) );
-    }
-
-    // Unzip the theme to the themes directory
-    $unzipped = unzip_file( $temp_file, $themes_dir );
-    if ( is_wp_error( $unzipped ) ) {
-        return new WP_Error( 'unzip_error', 'Unable to unzip the theme archive', array( 'status' => 500 ) );
-    }
-
-    // Return the theme information
-    return array(
-        'message' => 'Theme installed successfully',
-        'theme'   => wp_get_theme( $theme_slug ),
-    );
 }
