@@ -3,7 +3,7 @@ Contributors: ueniteam
 Tags: REST API, Themes  
 Requires at least: 5.0  
 Tested up to: 6.1.1  
-Stable tag: 0.1.1  
+Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/copyleft/gpl.html 
 
